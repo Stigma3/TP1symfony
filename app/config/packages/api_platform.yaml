@@ -11,3 +11,10 @@ api_platform:
                 type: header
     metadata_backward_compatibility_layer: 
         false
+
+api_platform:
+    swagger:
+         api_keys:
+             JWT:
+                name: Authorization
+                type: header
