@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %} 
+{% block body %}
+             <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Mon profil</span>
+
+                <div class="collapse" id="charts">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+                </ul>
+                </div>
+            </li>
+                <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="tables">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                </ul>
+                </div>
+            </li>
+            
+            </nav>
+                  <div class="content-wrapper">
+      <div class="card tale-bg">
+                <div class="card-people mt-auto">
+                  <table>
+        
+{% for publication in publications %}
+                {% include 'index/publication.html.twig' %}
+         {% endfor %}
+         <br><br>
+        {% if previous >= 0 %}
+                <a href="{{ path('app_publications', { offset: previous }) }}">Previous</a>
+        {% endif %}
+        <br><br>
+        {% if next < publications|length %}
+                <a href="{{ path('app_publications', { offset: next }) }}">Next</a>
+        {% endif %}
+            
+                   
+                  </div>
+                  
+                  
+                </div>
+        
+              </div>
+
+
+
+
+{% endblock %}
