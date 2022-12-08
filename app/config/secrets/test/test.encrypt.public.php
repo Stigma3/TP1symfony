@@ -1,0 +1,3 @@
+<?php // test.encrypt.public on Thu, 08 Dec 2022 15:51:14 +0100
+
+return "\xA4BOC\x7C\xF9\x22\x87\xAA\xF6\xEFc\x5BmC\xDF\xB9z\xF4R\x04\xEA4\x60CBf\xE6r\x22\xABh";

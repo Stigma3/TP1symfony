@@ -1,0 +1,43 @@
+
+
+{% block title %}{% endblock %}
+     {% block stylesheets %}
+        <link href="{{ asset('css/register.twig.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+
+
+{% block body %}
+
+    <link rel="stylesheet" href="css/register.css">
+    
+    <div class="container">
+    <h1>Register</h1>
+    {{ form_start(registrationForm) }}
+    <br>
+        <h3>
+        {{ form_row(registrationForm.email) 
+        }}
+        <br>
+        {{ form_row(registrationForm.surname) }}
+        <br>
+        {{ form_row(registrationForm.pseudo) }}
+        <br>
+        {{ form_row(registrationForm.name) }}
+        <br>
+        {{ form_row(registrationForm.plainPassword.first, {
+            label: 'Password'
+        }) }}
+        <br>
+        {{ form_row(registrationForm.plainPassword.second, {
+            label: 'confirm Password'
+        }) }}
+        <br>
+        {{ form_row(registrationForm.agreeTerms) }}
+        <br>
+
+        
+        <button type="submit" class="btn">Register</button>
+        </h3>
+    {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}
