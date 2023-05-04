@@ -17,7 +17,7 @@ use App\Security\LoginAuthenticator;
 
 class IndexController extends AbstractController
 {
-    #[Route('/index', name: 'app_index')]
+    #[Route('/', name: 'app_index')]
     
 
 
@@ -41,7 +41,6 @@ class IndexController extends AbstractController
       return new Response($this->render('index/index.html.twig', [
 
           'publicationForm' => $form->createView(),
-
 
 
 
