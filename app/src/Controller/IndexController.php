@@ -17,7 +17,7 @@ use App\Security\LoginAuthenticator;
 
 class IndexController extends AbstractController
 {
-    #[Route('/', name: 'app_index')]
+    #[Route('/login', name: 'app_index')]
     
 
 
