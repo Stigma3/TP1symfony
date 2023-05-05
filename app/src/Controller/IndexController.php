@@ -32,6 +32,7 @@ class IndexController extends AbstractController
           $publication->setEnvoi(1);
           $publication->setNbLike(0);
           $publication->setNbLikes(0);
+          $publication->setUser($this->getUser());
           $entityManager->persist($publication);
           $entityManager->flush();
 

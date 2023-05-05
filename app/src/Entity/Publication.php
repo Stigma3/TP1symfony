@@ -25,6 +25,10 @@ class Publication
     #[ORM\Column]
     private ?int $nbLikes = null;
 
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,5 +80,22 @@ class Publication
         $this->nbLikes = $nbLikes;
 
         return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getNamePub(): ?int
+    {
+        return $this->user ? $this->user->getId() : null;
     }
 }
