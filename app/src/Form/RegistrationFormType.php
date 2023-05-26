@@ -20,10 +20,10 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', textType:: class,[ 'attr' => ['class' => 'space'],])
-            ->add('pseudo', textType:: class,[ 'attr' => ['class' => 'space'],])
-            ->add('name', TextType:: class,[ 'attr' => ['class' => 'space'],])
-            ->add('surname', TextType:: class,[ 'attr' => ['class' => 'space'],])
+            ->add('email', textType:: class,['attr' => ['class' => '', 'style' => 'display: block;'],])
+            ->add('pseudo', textType:: class,['attr' => ['class' => '', 'style' => 'display: block;'],])
+            ->add('name', TextType:: class,['attr' => ['class' => '', 'style' => 'display: block;'],])
+            ->add('surname', TextType:: class,['attr' => ['class' => '', 'style' => 'display: block;'],])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -32,21 +32,24 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('plainPassword', RepeatedType::class, [
-                
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
-                'options'=> ['attr'=> ['class'=>'exempleNom' ]],
-                'type'=> PasswordType::class,
-                'first_options'=>array('label'=>'label.password'),
-                'second_options'=>array('label'=>'label.confirm_password'),
-                'required'=>true,
-                'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password', 'class' => 'space'],
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Please enter a password',
-                    ]),
+                    ->add('plainPassword', RepeatedType::class, [
+                        'options' => ['attr' => ['class' => 'exempleNom']],
+                        'type' => PasswordType::class,
+                        'first_options' => [
+                            'label' => 'label.password',
+                            'attr' => ['autocomplete' => 'new-password', 'style' => 'display: block;'],
+                        ],
+                        'second_options' => [
+                            'label' => 'label.confirm_password',
+                            'attr' => ['autocomplete' => 'new-password', 'style' => 'display: block;'],
+                        ],
+                        'required' => true,
+                        'mapped' => false,
+                        'constraints' => [
+                            new NotBlank([
+                                'message' => 'Please enter a password',
+                            ]),
+                            // Autres contraintes...
                     new Length([
                         'min' => 4,
                         'minMessage' => 'Your password should be at least {{ limit }} characters',

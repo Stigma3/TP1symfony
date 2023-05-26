@@ -8,35 +8,43 @@
 
 {% block body %}
 
-    <link rel="stylesheet" href="css/register.css">
     
     <div class="container">
-    <h1>Register</h1>
+    <center><h1>Register</h1></center>
     {{ form_start(registrationForm) }}
     <br>
-        <h3>
-        {{ form_row(registrationForm.email) 
-        }}
+        <h3><center>
+        {{ form_row(registrationForm.email, {
+            label_attr: {'style': 'margin-right: 120px'}
+        }) }}
         <br>
-        {{ form_row(registrationForm.surname) }}
+        {{ form_row(registrationForm.surname, {
+            label_attr: {'style': 'margin-right: 94px'}
+        }) }}
         <br>
-        {{ form_row(registrationForm.pseudo) }}
+        {{ form_row(registrationForm.pseudo, {
+            label_attr: {'style': 'margin-right: 110px'}
+        }) }}
         <br>
-        {{ form_row(registrationForm.name) }}
+        {{ form_row(registrationForm.name, {
+            label_attr: {'style': 'margin-right: 122px'}
+        }) }}
         <br>
         {{ form_row(registrationForm.plainPassword.first, {
-            label: 'Password'
+            label: 'Password',
+            label_attr: {'style': 'margin-right: 90px'}
         }) }}
         <br>
         {{ form_row(registrationForm.plainPassword.second, {
-            label: 'confirm Password'
+            label: 'Confirm Password',
+            label_attr: {'style': 'margin-right: 18px'}
         }) }}
         <br>
         {{ form_row(registrationForm.agreeTerms) }}
-        <br>
+        <br></center>
 
         
-        <button type="submit" class="btn">Register</button>
+        <center><button type="submit" class="btn">Register</button></center>
         </h3>
     {{ form_end(registrationForm) }}
     </div>
